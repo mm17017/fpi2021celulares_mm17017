@@ -1,21 +1,24 @@
 <template>
   <v-card>
-      <v-container>
-    <v-row>
-      <v-col cols="12" sm="2">
-        <v-select
-          :items="items"
-          label="Ordenar por:"
-          outlined
-          prepend-inner-icon="mdi-align-vertical-bottom"
-        ></v-select>
-      </v-col>
-    </v-row>
+    <v-container>
+      <v-row >
+        <v-col cols="8">
+          <v-select
+           class="altura"
+            :items="items"
+            label="Ordenar por:"
+            outlined
+            prepend-inner-icon="mdi-align-vertical-bottom"
+          ></v-select>
+        </v-col>
+        <v-col cols="4">
+          <v-btn color="primary" block x-large elevation="2" @click.stop="drawer = !drawer">
+            <v-icon>mdi-filter </v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
     </v-container>
 
-    <v-btn color="primary" elevation="11" @click.stop="drawer = !drawer">
-      <v-icon>mdi-filter </v-icon>
-    </v-btn>
     <v-navigation-drawer v-model="drawer" absolute temporary app clipped right>
       <criterio-busqueda />
     </v-navigation-drawer>
@@ -29,6 +32,7 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
+    items: ["Precio",'Calidad'],
   }),
   components: {
     CriterioBusqueda,
@@ -40,3 +44,10 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+.altura{
+    height: 2.1rem;
+}
+</style>

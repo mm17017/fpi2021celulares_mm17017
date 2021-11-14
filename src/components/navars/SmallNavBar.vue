@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card dark>
     <v-app-bar color="blue darken-3">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
@@ -16,41 +16,37 @@
       <v-spacer></v-spacer>
     </v-app-bar>
 
-    <v-navigation-drawer  v-model="drawer" absolute temporary app clipped>
+    <v-navigation-drawer v-model="drawer" absolute temporary app clipped>
       <v-list nav dense>
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-blue--text text--accent-4"
-        >
-          <v-list-item color="success">
-            
-            <v-list-item-icon >
-                <v-icon right > mdi-home </v-icon>&nbsp; 
-            </v-list-item-icon>
-            Inicio
+        <v-list-item-group v-model="group">
+          <v-list-item>
+            <v-btn large block :to="{ path: '/' }">
+              <v-icon right> mdi-cellphone</v-icon>&nbsp; CellPhone Store
+            </v-btn>
           </v-list-item>
-          <v-list-item color="primary">
-            <v-list-item-icon>
-                <v-icon right> mdi-call-missed </v-icon>&nbsp;
-            </v-list-item-icon>
-             Estadisticas
+          <v-divider dark></v-divider>
+          <v-list-item>
+            <v-btn large block color="success" :to="{ path: '/' }">
+              <v-icon right> mdi-home </v-icon>&nbsp; Inicio
+            </v-btn>
           </v-list-item>
-
-          <v-list-item color="warning">
-            <v-list-item-icon>
-                <v-icon right> mdi-plus </v-icon> &nbsp;
-            </v-list-item-icon>
-             Nuevo Anuncio
+          <v-list-item>
+            <v-btn large block color="warning" :to="{ path: '/nuevoanuncio' }">
+              <v-icon right> mdi-plus </v-icon> &nbsp; Nuevo Anuncio
+            </v-btn>
+          </v-list-item>
+          <v-list-item>
+            <v-btn large block color="red" :to="{ path: '/' }">
+              <v-icon right> mdi-cart-plus </v-icon> &nbsp; Añadir al carro
+            </v-btn>
           </v-list-item>
 
-          <v-list-item color="red">
-            <v-list-item-icon>
-                <v-icon right> mdi-cart-plus </v-icon> &nbsp;
-            </v-list-item-icon>
-          Añadir al carro
+          <v-list-item>
+            <v-btn large block color="primary" :to="{ path: '/' }">
+              <v-icon right> mdi-call-missed </v-icon>&nbsp; Estadisticas
+            </v-btn>
           </v-list-item>
         </v-list-item-group>
-         
       </v-list>
     </v-navigation-drawer>
   </v-card>

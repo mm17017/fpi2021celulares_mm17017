@@ -1,11 +1,18 @@
 <template>
   <v-app-bar color="blue darken-3" flat dark>
     <v-container class="py-0 fill-height">
-      <h3 class="blue-text d-none d-sm-flex">Phone Store</h3>
+      <router-link to="/">
+        <h3 class="blue-text d-none d-sm-flex">Phone Store</h3>
+      </router-link>
       &nbsp;&nbsp;
-      <v-avatar class="mr-10 d-none d-sm-flex" color="white darken-1" size="45">
-        <v-icon color="blue darken-4" x-large>mdi-cellphone</v-icon>
-      </v-avatar>
+      <router-link to="/">
+        <v-avatar
+          class="mr-10 d-none d-sm-flex"
+          color="white darken-1"
+          size="45">
+          <v-icon color="blue darken-4" x-large>mdi-cellphone</v-icon>
+        </v-avatar>
+      </router-link>
       <v-spacer></v-spacer>
       <v-responsive max-width="200">
         <v-text-field
@@ -20,11 +27,11 @@
       <v-spacer></v-spacer>
 
       <v-responsive class="d-none d-sm-flex">
-          <router-link to="/">
-        <v-btn class="ma-2" color="success">
+        <router-link to="/">
+          <v-btn class="ma-2" color="success">
             <v-icon right dark> mdi-home </v-icon>&nbsp; Inicio
-        </v-btn>
-          </router-link>
+          </v-btn>
+        </router-link>
         <v-btn class="ma-2" color="blue ligthen-1">
           <span class="text-color">
             <v-icon right dark> mdi-call-missed </v-icon>&nbsp; Estadisticas
