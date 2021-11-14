@@ -4,6 +4,9 @@ import vuetify from './plugins/vuetify'
 import './plugins/axios'
 import router from './router'
 import store from './store'
+import { firestorePlugin } from 'vuefire'
+
+Vue.use(firestorePlugin)
 
 Vue.config.productionTip = false
 

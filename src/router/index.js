@@ -1,15 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from '../views/Index.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'index',
-    component: Index
+    name: 'inicio',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Inicio.vue')
   },
+  {
+    path:'/nuevoanuncio',
+    name:'NuevoAnuncio',
+    component:() => import(/* webpackChunkName: "about" */ '../views/NuevoAnuncio.vue')
+  },
+  {
+    path: '/phone',
+    name: 'Phone',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Phone.vue')
+  },
+
   {
     path: '/about',
     name: 'About',
