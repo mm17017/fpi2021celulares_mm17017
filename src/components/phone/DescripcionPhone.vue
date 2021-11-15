@@ -52,16 +52,9 @@
         Añadir al Carro
       </v-btn>
     </v-card-actions>
-    <br />
-        <v-alert
-      color="primary"
-      dark
-      icon="mdi-cursor-default-click"
-      border="left"
-      prominent
-    >
-      <h4>Dar Click para dar ver mas detalles del telefono</h4>
-    </v-alert>
+    
+    <v-divider></v-divider>
+
   </v-card>
 </template>
 

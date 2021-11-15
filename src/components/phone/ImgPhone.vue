@@ -21,6 +21,6 @@ export default {
 <style scoped>
 .imagen {
   margin: auto !important;
-  border-radius: 10rem;
+  width: 20rem;
 }
 </style>
