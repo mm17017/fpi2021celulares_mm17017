@@ -1,5 +1,5 @@
 <template>
-  <v-card dark>
+  <v-card dark >
     <v-app-bar color="blue darken-3">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
@@ -16,7 +16,7 @@
       <v-spacer></v-spacer>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" absolute temporary app clipped>
+    <v-navigation-drawer v-model="drawer" absolute fixed temporary height="17.5rem" >
       <v-list nav dense>
         <v-list-item-group v-model="group">
           <v-list-item>
@@ -24,7 +24,9 @@
               <v-icon right> mdi-cellphone</v-icon>&nbsp; CellPhone Store
             </v-btn>
           </v-list-item>
+          
           <v-divider dark></v-divider>
+          <br>
           <v-list-item>
             <v-btn large block color="success" :to="{ path: '/' }">
               <v-icon right> mdi-home </v-icon>&nbsp; Inicio

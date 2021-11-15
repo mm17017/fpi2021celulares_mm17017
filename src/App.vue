@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire">
     <navbars/>
-    <v-main class="principal blue lighten-4">
+    <v-main class="blue lighten-4 altura">
       <router-view></router-view>
     </v-main>
   </v-app>
@@ -24,9 +24,11 @@ export default {
   components: {
     Navbars,
   },
-
-  Indexdata: () => ({
-    links: ["Dashboard", "Messages", "Profile", "Updates"],
-  }),
 };
 </script>
+
+<style scoped>
+.altura{
+  
+}
+</style>
