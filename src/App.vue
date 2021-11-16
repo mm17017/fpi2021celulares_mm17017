@@ -29,6 +29,6 @@ export default {
 
 <style scoped>
 .altura{
-  
+  height: 100%;
 }
 </style>
