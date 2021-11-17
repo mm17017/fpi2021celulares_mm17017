@@ -42,7 +42,7 @@
             <v-icon dark> mdi-plus </v-icon>
           </v-btn>
         </router-link>
-        <v-btn class="mx-2" fab dark color="red">
+        <v-btn :to="{path:'/carrito'}" class="mx-2" fab dark color="red">
           <v-icon dark> mdi-cart-plus </v-icon>
         </v-btn>
       </v-responsive>

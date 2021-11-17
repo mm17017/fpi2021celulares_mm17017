@@ -38,7 +38,7 @@
             </v-btn>
           </v-list-item>
           <v-list-item>
-            <v-btn large block color="red" :to="{ path: '/' }">
+            <v-btn large block color="red" :to="{ path: '/carrito' }">
               <v-icon right> mdi-cart-plus </v-icon> &nbsp; Añadir al carro
             </v-btn>
           </v-list-item>
