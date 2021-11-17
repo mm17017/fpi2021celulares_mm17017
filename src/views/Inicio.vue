@@ -5,10 +5,8 @@
         <criterio-busqueda />
       </v-col>
       <v-col cols="12" lg="10" sm="12">
-          <lg-search/>
-
-            <files-search />
-
+        <lg-search />
+        <files-search />
         <v-row>
           <v-col cols="6" lg="3">
             <telefono />
@@ -24,7 +22,7 @@
 import Telefono from "../components/Inicio/Telefono.vue";
 import CriterioBusqueda from "../components/Inicio/CriterioBusqueda.vue";
 import FilesSearch from "../components/Inicio/FilesSearch.vue";
-import LgSearch from '../components/Inicio/LgSearch.vue'
+import LgSearch from "../components/Inicio/LgSearch.vue";
 
 export default {
   name: "Inicio",
@@ -32,7 +30,7 @@ export default {
     Telefono,
     CriterioBusqueda,
     FilesSearch,
-    LgSearch
+    LgSearch,
   },
   data: () => ({
     items: ["Fecha", "Precio"],
@@ -47,5 +45,4 @@ export default {
 #input-usage .v-messages {
   border: 1px dashed rgba(0, 0, 0, 0.4);
 }
-
 </style>

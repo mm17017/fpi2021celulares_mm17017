@@ -23,11 +23,6 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="4">
-          <v-text-field label="Telefono" placeholder="2222-2222" outlined />
-        </v-col>
-      </v-row>
-      <v-row>
         <v-col cols="12">
           <v-text-field
             label="Descripcion"
@@ -37,23 +32,28 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-spacer></v-spacer>
-        <v-col cols="4">
+        <v-col cols="6" sm="6">
+          <v-text-field label="Telefono" placeholder="2222-2222" outlined />
+        </v-col>
+        <v-col cols="6">
           <v-text-field label="Precio" type="number" outlined />
         </v-col>
-        <v-spacer></v-spacer>
       </v-row>
-      <v-row  class="justify-center">
-        <v-col cols="4" >
-          <v-btn shaped color="success" x-large>
-            <v-icon large right>mdi-content-save</v-icon>&nbsp;&nbsp;Guardar
+      <v-row>
+        <v-spacer></v-spacer>
+        <v-col cols="6" lg="4" sm="12" xs="12" class="justify-center">
+          <v-btn shaped color="success" x-large block>
+            <v-icon x-large right>mdi-content-save</v-icon
+            >&nbsp;&nbsp;&nbsp;Guardar
           </v-btn>
         </v-col>
-        <v-col cols="4" class="justify-center">
-          <v-btn dark shaped color="red" x-large>
-            <v-icon large right>mdi-close-circle</v-icon>&nbsp;&nbsp;Cancelar
+        <v-col cols="6" lg="4" sm="12" xs="12" class="justify-center">
+          <v-btn dark shaped color="red" x-large block>
+            <v-icon x-large right>mdi-close-circle</v-icon
+            >&nbsp;&nbsp;&nbsp;Cancelar
           </v-btn>
         </v-col>
+        <v-spacer></v-spacer>
       </v-row>
     </v-container>
   </v-card>
