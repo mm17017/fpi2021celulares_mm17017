@@ -1,5 +1,5 @@
 <template>
-  <v-card shaped elevation="11">
+  <v-card shaped elevation="11" height="500px">
     <center>
       <viewer>
         <img
@@ -11,7 +11,6 @@
     </center>
   </v-card>
 </template>
-
 <script>
 export default {
   name: "ImgPhone",

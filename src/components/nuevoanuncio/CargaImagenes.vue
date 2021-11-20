@@ -1,133 +1,129 @@
 <template>
-    <v-card elevation="11" outlined shaped>
-            <v-card-title primary-title class="justify-center pie">
+  <v-card elevation="11" outlined shaped height="500px">
+    <v-card-title primary-title class="justify-center pie">
       IMAGENES DEL TELEFONO
     </v-card-title>
-    <v-container>
-       <v-row>
-        <v-col cols="12">
-          <v-file-input
-            color="deep-purple accent-4"
-            label="File input"
-            multiple
-            filled
-            chips
-            placeholder="Select your files"
-            prepend-icon="mdi-paperclip"
-            outlined
-            :show-size="1000"
-            @change="ar"
-          >
-            <template v-slot:selection="{ text }">
-              <v-chip small label color="primary">
-                {{ text }}
-              </v-chip>
-            </template>
-          </v-file-input>
-        </v-col>
-      </v-row>
-            <v-row>
-        <v-col cols="12" >
-          <v-btn color="success" block x-large @click="actualizarImagen"
-            >Cargar</v-btn>
-        </v-col>
-      </v-row>
-      <v-row class="tbl">
-        <v-col cols="12" lg="12" sm="12">
-          <v-simple-table dense dark fixed-header max-height="4">
-            <template v-slot:default>
-              <thead>
-                <tr>
-                  <th class="text-center">N</th>
-                  <th class="text-center">Tamano</th>
-                  <th class="text-center">Tipo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="img in images" :key="img.name" class="text-center">
-                  <td>{{ img.name }}</td>
-                  <td>{{ img.calories }}</td>
-                  <td>
-                    <v-btn dark rounded x-small color="red" elevation="10">
-                      <v-icon> mdi-minus-thick </v-icon>
-                    </v-btn>
-                  </td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
-        </v-col>
-      </v-row>
-    </v-container>
-    </v-card>
+    <v-form>
+      <v-container>
+        <v-row>
+          <v-col cols="12" lg="6" sm="12">
+            <v-file-input
+              color="deep-blue accent-4"
+              label="File input"
+              v-model="infoImages.imagenFiles"
+              multiple
+              filled
+              chips
+              placeholder="Select your files"
+              prepend-icon="mdi-paperclip"
+              outlined
+              @change="obtenerImagen"
+              :show-size="1000"
+            >
+              <template v-slot:selection="{ text }">
+                <v-chip small label color="primary">
+                  {{ text }}
+                </v-chip>
+              </template>
+            </v-file-input>
+            <v-simple-table dense dark fixed-header max-height="4">
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th class="text-center">Imagenes</th>
+                    <th class="text-center">Accion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    v-for="(img, index) in infoImages.imagenFiles"
+                    :key="index"
+                    class="text-center"
+                  >
+                    <td>{{ img.name }}</td>
+                    <td>
+                      <v-btn
+                        dark
+                        rounded
+                        x-small
+                        color="red"
+                        elevation="10"
+                        @click="eliminarImagen(index)"
+                      >
+                        <v-icon> mdi-minus-thick </v-icon>
+                      </v-btn>
+                    </td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-simple-table>
+          </v-col>
+          <v-col cols="12" lg="6" sm="12">
+            <v-card height="400px" class="overflow-x-auto"  >
+              <center>
+                <carrousel :imagenes="imagenesTelefono.fotos" :tamano="infoImages.tamano"/>
+                
+              </center>
+            </v-card>
+          </v-col>
+          <v-col cols="12" lg="6" sm="12"> </v-col>
+        </v-row>
+      </v-container>
+    </v-form>
+  </v-card>
 </template>
 
 <script>
+import Carrousel from './Carrousel.vue';
 export default {
-    name:'CargaImagenes',
-
-     data: () => ({
-    images: [
-      {
-        name: "Frozen Yogurt",
-        calories: 159,
-      },
-      {
-        name: "Ice cream sandwich",
-        calories: 237,
-      },
-      {
-        name: "Eclair",
-        calories: 262,
-      },
-      {
-        name: "Cupcake",
-        calories: 305,
-      },
-      {
-        name: "Gingerbread",
-        calories: 356,
-      },
-      {
-        name: "Jelly bean",
-        calories: 375,
-      },
-      {
-        name: "Lollipop",
-        calories: 392,
-      },
-    ],
-
-    files: [],
-    previews: [],
-    muestras: [],
-    errorImage: "url of an image to use to indicate an error",
-  }),
-   
-  methods: {
-    ar(files) {
-      console.log(files);
-      files.forEach((file, index) => {
-        var reader = new FileReader();
-        let lectura;
-        reader.load = function () {
-          lectura = reader.result;
-        };
-        this.previews[index] = lectura;
-        if (file) {
-          reader.readAsDataURL(file);
-        } else {
-          this.previews[index] = "";
-        }
-      });
+  components: {Carrousel},
+  name: "CargaImagenes",
+  data: () => ({
+    
+    imagenCargar: "",
+    infoImages: {
+      imagenFiles: [],
+      tamano:'80%'
     },
+    imagenesTelefono: {
+      fotos: [],
+    },
+  }),
 
-    actualizarImagen() {
-      console.log(this.previews);
-      this.muestras = this.previews;
+  methods: {
+    obtenerImagen() {
+      this.infoImages.imagenFiles.forEach((e) => {
+        this.cargarImagen(e);
+      });
+      this.enviarImagen()
+    },
+    cargarImagen(e) {
+      let reader = new FileReader();
+      reader.onloadend = () => {
+        this.imagenCargar = reader.result;
+        this.imagenesTelefono.fotos.push(this.imagenCargar);
+      };
+      if (e) {
+        reader.readAsDataURL(e);
+      } else {
+        console.log("Todo se derrumbooo");
+        this.imagenCargar = "";
+      }
+    },
+    eliminarImagen(index) {
+      this.infoImages.imagenFiles.splice(index, 1);
+      this.imagenesTelefono.fotos.splice(index, 1);
+    },
+    enviarImagen(){
+      this.$emit('cargarImagen',this.imagenesTelefono)
+    }
+  },
+  computed: {
+    imagen() {
+      return this.cargarImagen;
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -135,13 +131,11 @@ export default {
   padding-top: 1.5rem;
   padding-bottom: 1.1rem;
 }
-.row {
-  height: 4.5rem;
+.tam .tamcell {
+  height: 25% !important;
 }
 
-.tbl {
-  height: auto !important;
+.imagen {
+  width: 60%;
 }
-
-
 </style>

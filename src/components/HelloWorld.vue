@@ -150,7 +150,8 @@
     methods:{
       getS(){
         
-      }
+      },
+
     }
   }
 </script>

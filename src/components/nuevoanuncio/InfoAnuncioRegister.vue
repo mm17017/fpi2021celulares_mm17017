@@ -10,6 +10,8 @@
             label="Titulo breve del anuncio"
             placeholder="Titulo"
             outlined
+            v-model="infoAnuncio.titulo"
+            @keypress="enviarAnuncio"
           />
         </v-col>
       </v-row>
@@ -19,6 +21,8 @@
             label="Vendedor"
             placeholder="Nombre del vendedor"
             outlined
+            v-model="infoAnuncio.vendedor"
+            @keypress="enviarAnuncio"
           />
         </v-col>
       </v-row>
@@ -28,32 +32,18 @@
             label="Descripcion"
             placeholder="Ingrese una descripcion"
             outlined
+            v-model="infoAnuncio.descripcion"
+            @keypress="enviarAnuncio" 
           />
         </v-col>
       </v-row>
       <v-row>
         <v-col cols="6" sm="6">
-          <v-text-field label="Telefono" placeholder="2222-2222" outlined />
+          <v-text-field label="Telefono" placeholder="2222-2222" outlined v-model="infoAnuncio.telefono" @keypress="enviarAnuncio"/>
         </v-col>
         <v-col cols="6">
-          <v-text-field label="Precio" type="number" outlined />
+          <v-text-field label="Precio" type="number" outlined v-model="infoAnuncio.precio" @keypress="enviarAnuncio"/>
         </v-col>
-      </v-row>
-      <v-row>
-        <v-spacer></v-spacer>
-        <v-col cols="6" lg="4" sm="12" xs="12" class="justify-center">
-          <v-btn shaped color="success" x-large block>
-            <v-icon x-large right>mdi-content-save</v-icon
-            >&nbsp;&nbsp;&nbsp;Guardar
-          </v-btn>
-        </v-col>
-        <v-col cols="6" lg="4" sm="12" xs="12" class="justify-center">
-          <v-btn dark shaped color="red" x-large block>
-            <v-icon x-large right>mdi-close-circle</v-icon
-            >&nbsp;&nbsp;&nbsp;Cancelar
-          </v-btn>
-        </v-col>
-        <v-spacer></v-spacer>
       </v-row>
     </v-container>
   </v-card>
@@ -62,6 +52,27 @@
 <script>
 export default {
   name: "InforAnuncioRegister",
+  data:()=>({
+    infoAnuncio:{
+      titulo:'',
+      vendedor:'',
+      telefono:'',
+      precio:''
+    },
+    enviar : true
+  }),
+  methods:{
+  enviarAnuncio(){
+    this.$emit('infoAnuncioRegister',this.infoAnuncio)
+  },
+  guardar(){
+    this.$emit('save',this.enviar)
+  },
+  cancelar(){
+    this.$emit('cancel','cancelar')
+  }
+  }
+  
 };
 </script>
 
