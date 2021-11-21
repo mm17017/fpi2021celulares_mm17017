@@ -9,7 +9,8 @@ export default new Vuex.Store({
     sistemas:['ANDRIOD','IOS'],
     pantallas:['6.0','6.3','6.6','5.9'],
     detalleTelefono:{},
-    carrito:[]
+    carrito:[],
+    telefonos:[]
 
   },
   mutations: {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     agregarCarrito(state,telefono){
       state.carrito.push(telefono)
+    },
+    cargarTelefonos(state,telefonos){
+      state.telefonos = telefonos
     }
   },
   actions: {

@@ -38,8 +38,7 @@
                   <tr
                     v-for="(img, index) in infoImages.imagenFiles"
                     :key="index"
-                    class="text-center"
-                  >
+                    class="text-center" >
                     <td>{{ img.name }}</td>
                     <td>
                       <v-btn
@@ -58,7 +57,7 @@
               </template>
             </v-simple-table>
           </v-col>
-          <v-col cols="12" lg="6" sm="12">
+          <v-col cols="12" lg="6" sm="12" class="d-none d-sm-flex d-sm-none d-md-flex">
             <v-card height="400px" class="overflow-x-auto"  >
               <center>
                 <carrousel :imagenes="imagenesTelefono.fotos" :tamano="infoImages.tamano"/>
@@ -79,7 +78,6 @@ export default {
   components: {Carrousel},
   name: "CargaImagenes",
   data: () => ({
-    
     imagenCargar: "",
     infoImages: {
       imagenFiles: [],

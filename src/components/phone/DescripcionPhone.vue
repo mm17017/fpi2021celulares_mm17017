@@ -24,18 +24,20 @@
       >
         <v-card-text class="pb-0">
           <p class="text-h4 text--white">Caracteristicas</p>
-          <p>
-            late 16th century (as a noun denoting a place where alms were
-            distributed): from medieval Latin eleemosynarius, from late Latin
-            eleemosyna ‘alms’, from Greek eleēmosunē ‘compassion’
-          </p>
+          <p>Sistema Operativo: {{detalleTelefono.sistema}}</p>
+          <p>Pantalla: {{detalleTelefono.pantalla}}</p>
+          <p>Marca: {{detalleTelefono.marca}}</p>
+          <p>RAM: {{detalleTelefono.ram}}</p>
+          <p>ROM: {{detalleTelefono.rom}}</p>
+          <p>Estado: {{detalleTelefono.estado}}</p>
+          <p>Modelo: {{detalleTelefono.modelo}}</p>
+          
+
         </v-card-text>
                 <v-card-text class="pb-0">
           <p class="text-h4 text--white">Informacion del vendedor</p>
           <p>
-            late 16th century (as a noun denoting a place where alms were
-            distributed): from medieval Latin eleemosynarius, from late Latin
-            eleemosyna ‘alms’, from Greek eleēmosunē ‘compassion’
+  {{detalleTelefono.descripcion}}
           </p>
         </v-card-text>
         <v-card-actions class="pt-0">
@@ -46,10 +48,12 @@
       </v-card>
     </v-expand-transition>
     <v-card-actions class="pt-0">
-      <v-btn x-large block color="red"> &nbsp;&nbsp;
+      <!-- <router-link to="/carrito"> -->
+      <v-btn x-large block color="red" @click="agregarAlCarro(detalleTelefono)" :to="{path:'/carrito'}"> &nbsp;&nbsp;
         <v-icon large right dark> mdi-cart-plus </v-icon>&nbsp;&nbsp;
         Añadir al Carro
       </v-btn>
+      <!-- </router-link> -->
     </v-card-actions>
     
     <v-divider></v-divider>
@@ -64,6 +68,12 @@ export default {
   data: () => ({
     reveal: false,
   }),
+methods:{
+  agregarAlCarro(telefono){
+    this.$store.commit('agregarCarrito',telefono)
+    
+  }
+},
     computed: {
     ...mapState(["detalleTelefono"]),
   },

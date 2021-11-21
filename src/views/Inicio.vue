@@ -37,8 +37,17 @@ export default {
     items: ["Fecha", "Precio"],
     anuncios :[]
   }),
+  methods:{
+    cargar(){
+      
+    }
+  },
   firestore:{
     anuncios : db.collection('anuncios')
+  },
+  created:()=>{
+    //  this.$store.commit('cargarTelefonos',this.anuncios)
+      console.log(this)
   }
 };
 </script>

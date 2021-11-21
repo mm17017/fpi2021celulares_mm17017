@@ -14,9 +14,7 @@
     <v-row>
       <v-col cols="12">
         <info-anuncio-register
-          @infoAnuncioRegister="cargaInfoRegister"
-          
-        />
+          @infoAnuncioRegister="cargaInfoRegister"/>
         <v-row>
           <v-spacer></v-spacer>
           <v-col cols="6" lg="4" sm="12" xs="12" class="justify-center">
@@ -80,6 +78,5 @@ export default {
   },
 };
 </script>
-
 <style>
 </style>

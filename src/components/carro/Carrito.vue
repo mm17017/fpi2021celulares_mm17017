@@ -11,7 +11,7 @@
           OVERLINE
         </div>
         <v-list-item-title class="text-h5 mb-1">
-          Headline 5
+          
         </v-list-item-title>
         <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
       </v-list-item-content>
@@ -37,7 +37,9 @@
 
 <script>
 export default {
-    name:'Carrito'
+    name:'Carrito',
+    props:['articulo']
+
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <v-card elevation="11" outlined shaped max-height="800px">
+  <v-card elevation="11" outlined shaped max-height="600px">
     <v-img
       alt="Contiene algun telefono"
       :src="telefono.fotos[0]"
@@ -8,7 +8,7 @@
     <v-card-title> {{telefono.titulo}} </v-card-title>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <p>{{telefono.precio}}</p>
+      <p>${{telefono.precio}}</p>
       <v-spacer></v-spacer>
       <router-link to="/phone">
         <v-btn color="blue darken1" elevation="25" fab @click="verProducto(telefono)">
