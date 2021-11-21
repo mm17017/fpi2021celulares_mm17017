@@ -8,8 +8,8 @@
         <lg-search />
         <files-search />
         <v-row>
-          <v-col cols="6" lg="3">
-            <telefono />
+          <v-col cols="6" lg="3" v-for="(anuncio,key) in anuncios" :key="key">
+            <telefono :telefono="anuncio" />
           </v-col>
         </v-row>
       </v-col>
@@ -23,6 +23,7 @@ import Telefono from "../components/Inicio/Telefono.vue";
 import CriterioBusqueda from "../components/Inicio/CriterioBusqueda.vue";
 import FilesSearch from "../components/Inicio/FilesSearch.vue";
 import LgSearch from "../components/Inicio/LgSearch.vue";
+import {db} from '@/db';
 
 export default {
   name: "Inicio",
@@ -34,7 +35,11 @@ export default {
   },
   data: () => ({
     items: ["Fecha", "Precio"],
+    anuncios :[]
   }),
+  firestore:{
+    anuncios : db.collection('anuncios')
+  }
 };
 </script>
 

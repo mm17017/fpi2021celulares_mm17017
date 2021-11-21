@@ -71,7 +71,9 @@ export default {
     },
     guardar() {
       console.log('eventoBoton')
-        this.nuevoAnuncio = {...this.infoAnuncio,...this.infoTelefono,...this.listaImagenes};
+        let now = new Date();
+        
+        this.nuevoAnuncio = {...this.infoAnuncio,...this.infoTelefono,...this.listaImagenes,now};
         db.collection('anuncios').add(this.nuevoAnuncio)
       console.log(this.nuevoAnuncio)
     },

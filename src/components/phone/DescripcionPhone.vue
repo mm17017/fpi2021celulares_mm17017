@@ -1,13 +1,12 @@
 <template>
   <v-card shaped dark class="mx-auto" elevation="10">
     <v-card-text class="white-text">
-      <p class="text-h4 text-white">XIAOMI</p>
-      <p class="text-h6 text-white">$132.00</p>
+      <p class="text-h4 text-white">{{detalleTelefono.titulo}}</p>
+      <p class="text-h6 text-white">${{detalleTelefono.precio}}</p>
 
       <div class="text--default">
         <p class="detalles">
-          relating to or dependent on charity; charitable.<br />
-          "an eleemosynary educational institution.
+{{detalleTelefono.descripcion}}
         </p>
       </div>
     </v-card-text>
@@ -59,11 +58,16 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "DescripcionPhone",
   data: () => ({
     reveal: false,
   }),
+    computed: {
+    ...mapState(["detalleTelefono"]),
+  },
+
 };
 </script>
 

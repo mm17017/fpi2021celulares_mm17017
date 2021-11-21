@@ -8,9 +8,17 @@ export default new Vuex.Store({
     marcas:['XIAOMI','SAMSUMG','IPHONE','HUAWEI'],
     sistemas:['ANDRIOD','IOS'],
     pantallas:['6.0','6.3','6.6','5.9'],
+    detalleTelefono:{},
+    carrito:[]
 
   },
   mutations: {
+    verTelefono(state,update){
+      state.detalleTelefono=update
+    },
+    agregarCarrito(state,telefono){
+      state.carrito.push(telefono)
+    }
   },
   actions: {
   },
