@@ -48,12 +48,12 @@
       </v-card>
     </v-expand-transition>
     <v-card-actions class="pt-0">
-      <!-- <router-link to="/carrito"> -->
-      <v-btn x-large block color="red" @click="agregarAlCarro(detalleTelefono)" :to="{path:'/carrito'}"> &nbsp;&nbsp;
+      <router-link to="/carrito" class="enlace"> 
+      <v-btn x-large block color="red" @click="agregarAlCarro(detalleTelefono)"> &nbsp;&nbsp;
         <v-icon large right dark> mdi-cart-plus </v-icon>&nbsp;&nbsp;
         Añadir al Carro
       </v-btn>
-      <!-- </router-link> -->
+      </router-link>
     </v-card-actions>
     
     <v-divider></v-divider>
@@ -85,5 +85,12 @@ methods:{
 .detalles {
   text-align: center;
   font-size: 20px;
+}
+
+.enlace{
+  width: 100%;
+}
+a:link, a:visited, a:active {
+    text-decoration:none;
 }
 </style>

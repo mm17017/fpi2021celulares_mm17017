@@ -3,27 +3,25 @@
     shaped
     elevation="11"
     outlined
-    dark
   >
     <v-list-item three-line>
       <v-list-item-content>
-        <div class="text-overline mb-4">
-          OVERLINE
-        </div>
         <v-list-item-title class="text-h5 mb-1">
-          
+          {{articulo.titulo}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Costo: $ {{articulo.precio}}
         </v-list-item-title>
-        <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+        <v-list-item-subtitle>{{articulo.descripcion}}</v-list-item-subtitle>
       </v-list-item-content>
 
-      <v-list-item-avatar
-        tile
-        size="80"
-        color="grey"
-      ></v-list-item-avatar>
+      <v-list-item-avatar 
+        size="100"
+        color="white"
+
+      >
+      <v-img width="25%" :src="articulo.fotos[1]"/>
+      </v-list-item-avatar>
     </v-list-item>
 
-    <v-card-actions>
+    <v-card-actions @click="eliminarArticulo(index)">
       <v-btn
         outlined
         rounded
@@ -38,7 +36,12 @@
 <script>
 export default {
     name:'Carrito',
-    props:['articulo']
+    props:['articulo','index'],
+    methods:{
+      eliminarArticulo(index){
+        this.$store.commit('eliminarTelefonoCarrito',index)
+      }
+    }
 
 }
 </script>

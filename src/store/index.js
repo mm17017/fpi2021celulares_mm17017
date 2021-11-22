@@ -22,10 +22,23 @@ export default new Vuex.Store({
     },
     cargarTelefonos(state,telefonos){
       state.telefonos = telefonos
+    },
+    eliminarTelefonoCarrito(state,index){
+      state.carrito.splice(index,1)
     }
   },
   actions: {
   },
   modules: {
   },
+  getters:{
+    calcularCosto: state=>{
+      let costo=0
+      state.carrito.forEach((articulo)=>{
+        costo+=Number(articulo.precio)
+      })
+      return costo
+
+    }
+  }
 })
