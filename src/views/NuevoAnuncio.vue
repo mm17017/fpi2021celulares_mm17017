@@ -68,13 +68,20 @@ export default {
       this.infoTelefono = { ...ev };
     },
     guardar() {
+      this.cargarInfoTelefono()
       console.log('eventoBoton')
         let now = new Date();
         
         this.nuevoAnuncio = {...this.infoAnuncio,...this.infoTelefono,...this.listaImagenes,now};
         db.collection('anuncios').add(this.nuevoAnuncio)
-      console.log(this.nuevoAnuncio)
+      this.limpiar();
     },
+    limpiar(){
+    this.infoTelefono =null
+    this.infoAnuncio= null
+    this.listaImagenes= null
+    this.nuevoAnuncio= null
+    }
   },
 };
 </script>

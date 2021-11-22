@@ -42,7 +42,7 @@
           <v-text-field label="Telefono" placeholder="2222-2222" outlined v-model="infoAnuncio.telefono" @keypress="enviarAnuncio"/>
         </v-col>
         <v-col cols="6">
-          <v-text-field label="Precio" type="number" outlined v-model="infoAnuncio.precio" @keypress="enviarAnuncio"/>
+          <v-text-field label="Precio" type="number" outlined v-model="infoAnuncio.precio" @keyup="enviarAnuncio"/>
         </v-col>
       </v-row>
     </v-container>

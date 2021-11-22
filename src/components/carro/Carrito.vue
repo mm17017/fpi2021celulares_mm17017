@@ -17,7 +17,7 @@
         color="white"
 
       >
-      <v-img width="25%" :src="articulo.fotos[1]"/>
+      <v-img width="25%" :src="articulo.fotos[0]"/>
       </v-list-item-avatar>
     </v-list-item>
 

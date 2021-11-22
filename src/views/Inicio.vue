@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container @load="cargarLista">
     <v-row>
       <v-col class="d-none d-lg-flex d-xl-none" cols="12" lg="" sm="12">
         <criterio-busqueda />
@@ -38,7 +38,7 @@ export default {
     anuncios :[]
   }),
   methods:{
-    cargar(){
+    cargarLista(){
       
     }
   },

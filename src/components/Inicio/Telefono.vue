@@ -1,11 +1,11 @@
 <template>
-  <v-card elevation="11" outlined shaped max-height="600px">
+  <v-card elevation="11" outlined shaped height="400px">
     <v-img
       alt="Contiene algun telefono"
       :src="telefono.fotos[0]"
       class="tam"
     ></v-img>
-    <v-card-title> {{telefono.titulo}} </v-card-title>
+    <v-card-title class="text-truncate"> {{telefono.titulo}} </v-card-title>
     <v-card-actions>
       <v-spacer></v-spacer>
       <p>${{telefono.precio}}</p>
@@ -16,7 +16,7 @@
         </v-btn>
       </router-link>
     </v-card-actions>
-    <v-card-text>{{telefono.descripcion}}</v-card-text>
+    <v-card-text  class="text-truncate">{{telefono.descripcion}}</v-card-text>
   </v-card>
 </template>
 
@@ -35,7 +35,8 @@ export default {
 
 <style>
 .tam {
-  width: 70%;
+  width: 100px;
+  height: 190px;
   margin: auto;
 }
 </style>
