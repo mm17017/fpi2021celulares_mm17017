@@ -10,7 +10,7 @@ export default new Vuex.Store({
     pantallas:['6.0','6.3','6.6','5.9'],
     detalleTelefono:{},
     carrito:[],
-    telefonos:[]
+    anunciosTelefonos:[]
 
   },
   mutations: {
@@ -21,7 +21,7 @@ export default new Vuex.Store({
       state.carrito.push(telefono)
     },
     cargarTelefonos(state,telefonos){
-      state.telefonos = telefonos
+      state.anunciosTelefonos = telefonos
     },
     eliminarTelefonoCarrito(state,index){
       state.carrito.splice(index,1)

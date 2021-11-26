@@ -13,8 +13,7 @@
     </v-row>
     <v-row>
       <v-col cols="12">
-        <info-anuncio-register
-          @infoAnuncioRegister="cargaInfoRegister"/>
+        <info-anuncio-register @infoAnuncioRegister="cargaInfoRegister" />
         <v-row>
           <v-spacer></v-spacer>
           <v-col cols="6" lg="4" sm="12" xs="12" class="justify-center">
@@ -40,7 +39,7 @@
 import CargaImagenes from "../components/nuevoanuncio/CargaImagenes.vue";
 import InfoAnuncioRegister from "../components/nuevoanuncio/InfoAnuncioRegister.vue";
 import InfoTelefonoRegister from "../components/nuevoanuncio/InfoTelefonoRegister.vue";
-import {db} from '@/db'
+import { db } from "@/db";
 
 export default {
   name: "NuevoAnuncio",
@@ -57,31 +56,33 @@ export default {
   },
   methods: {
     cargarImagenes(ev) {
-      
       this.listaImagenes = { ...ev };
     },
     cargaInfoRegister(ev) {
-      
       this.infoAnuncio = { ...ev };
     },
     cargarInfoTelefono(ev) {
       this.infoTelefono = { ...ev };
     },
     guardar() {
-      this.cargarInfoTelefono()
-      console.log('eventoBoton')
-        let now = new Date();
-        
-        this.nuevoAnuncio = {...this.infoAnuncio,...this.infoTelefono,...this.listaImagenes,now};
-        db.collection('anuncios').add(this.nuevoAnuncio)
-      this.limpiar();
+      console.log("eventoBoton");
+      let now = parseInt(new Date());
+
+      this.nuevoAnuncio = {
+        ...this.infoAnuncio,
+        ...this.infoTelefono,
+        ...this.listaImagenes,
+        now,
+      };
+      console.log(this.nuevoAnuncio);
+      db.collection("anuncios").add(this.nuevoAnuncio);
     },
-    limpiar(){
-    this.infoTelefono =null
-    this.infoAnuncio= null
-    this.listaImagenes= null
-    this.nuevoAnuncio= null
-    }
+    limpiar() {
+      this.infoTelefono = null;
+      this.infoAnuncio = null;
+      this.listaImagenes = null;
+      this.nuevoAnuncio = null;
+    },
   },
 };
 </script>

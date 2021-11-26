@@ -22,6 +22,7 @@
           hide-details
           rounded
           solo-inverted
+          v-model="search"
         ></v-text-field>
       </v-responsive>
       <v-spacer></v-spacer>
@@ -53,6 +54,14 @@
 <script>
 export default {
   name: "BigNavbar",
+  data:()=>({
+    search:''
+  }),
+  watch:{
+    search(nuevoValor){
+      this.$emit("buscarText",nuevoValor)
+    }
+  }
 };
 </script>
 

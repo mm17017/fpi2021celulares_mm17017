@@ -33,16 +33,28 @@
             placeholder="Ingrese una descripcion"
             outlined
             v-model="infoAnuncio.descripcion"
-            @keypress="enviarAnuncio" 
+            @keypress="enviarAnuncio"
           />
         </v-col>
       </v-row>
       <v-row>
         <v-col cols="6" sm="6">
-          <v-text-field label="Telefono" placeholder="2222-2222" outlined v-model="infoAnuncio.telefono" @keypress="enviarAnuncio"/>
+          <v-text-field
+            label="Telefono"
+            placeholder="2222-2222"
+            outlined
+            v-model="infoAnuncio.telefono"
+            @keypress="enviarAnuncio"
+          />
         </v-col>
         <v-col cols="6">
-          <v-text-field label="Precio" type="number" outlined v-model="infoAnuncio.precio" @keyup="enviarAnuncio"/>
+          <v-text-field
+            label="Precio"
+            type="number"
+            outlined
+            v-model="infoAnuncio.precio"
+            @keyup.capture="enviarAnuncio"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -52,27 +64,34 @@
 <script>
 export default {
   name: "InforAnuncioRegister",
-  data:()=>({
-    infoAnuncio:{
-      titulo:'',
-      vendedor:'',
-      telefono:'',
-      precio:''
+  data: () => ({
+    infoAnuncio: {
+      titulo: "",
+      vendedor: "",
+      telefono: "",
+      precio: "",
     },
-    enviar : true
+    enviar: true,
   }),
-  methods:{
-  enviarAnuncio(){
-    this.$emit('infoAnuncioRegister',this.infoAnuncio)
+  methods: {
+    enviarAnuncio() {
+      this.$emit("infoAnuncioRegister", this.infoAnuncio);
+    },
+    guardar() {
+      this.$emit("save", this.enviar);
+    },
+    cancelar() {
+      this.$emit("cancel", "cancelar");
+    },
   },
-  guardar(){
-    this.$emit('save',this.enviar)
+  watch: {
+    infoAnuncio: {
+      deep: true,
+      handler: (nuevoValor) => {
+        this.$emit("infoAnuncioRegister", nuevoValor);
+      },
+    },
   },
-  cancelar(){
-    this.$emit('cancel','cancelar')
-  }
-  }
-  
 };
 </script>
 
